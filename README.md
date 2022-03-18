@@ -33,6 +33,11 @@ Pælingin er að þú lærir stuff með research vinnu og svo auðvitað spyrðu
    - Skilgreindu í hönnunarkerfinu nýjan button variant sem er "ghost" variant, þ.e. með hvítan bakgrunn, primary color border og texta
    - þegar maður hoverar hann eiga litirnir að snúast við
    - búðu svo til nýjan route path í pages sem heitir test þannig þegar ég fer á /test þá ætti ég að sjá þennan nýja button!
+   - Normal state er fyrsta myndin og hover state er önnur
+   
+   ![image](https://user-images.githubusercontent.com/16048954/159069053-1a2daa3e-654d-4e6d-b458-6440334ceacc.png)
+   ![image](https://user-images.githubusercontent.com/16048954/159069059-1e8dc71a-51bb-4ecb-9ece-09e96eb09d0d.png)
+
 
 2. Búðu til component sem lítur svipað og svona út og notaðu í það <Box> componentinn úr styled system og responsive features í því.
    - Þú getur miðað við einhverja componenta sem ég setti hér fyrir til að sjá hvernig það er gert.
