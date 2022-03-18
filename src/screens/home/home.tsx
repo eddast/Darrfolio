@@ -1,10 +1,11 @@
 import { ImageTextSlice } from 'components'
 import { PageIntro } from 'components/pageIntro/pageIntro'
+import { FunFactsSlice } from 'components/slices/funFacts/funFacts'
 import { ImageGridSlice } from 'components/slices/imageGrid/imageGrid'
 import { LayoutScreen, withLayout } from 'layouts'
 import { withWrapperBox } from 'layouts/wrappers'
 import { Home as Page } from 'types'
-import { Box, Container, PrismicSliceZone, Text } from 'ui/core'
+import { Box, Container, PrismicSliceZone } from 'ui/core'
 
 interface Props {
   page: Page
