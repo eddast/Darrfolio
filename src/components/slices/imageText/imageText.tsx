@@ -45,7 +45,7 @@ export const ImageText: FC<Props> = ({ title, right, text, image }) => (
               right ? 'row-reverse' : 'row',
             ]}
           >
-            <Box width={['full', 'full', 'full', '5/12']}>
+            <Box width={['full', 'full', 'full', '5/12']} pt={[3, 3, 3, 0]}>
               <TextReveal
                 animate={inView}
                 variant="h2"
