@@ -1,4 +1,4 @@
-import { Box } from 'ui/core'
+import { Box, Container } from 'ui/core'
 import { FC } from 'react'
 
 /* Þessi wrappar bara slice-um í prismic - þ.e. byggingaeiningunum
@@ -8,9 +8,11 @@ import { FC } from 'react'
 export const withWrapperBox = <T,>(Component: FC<T>, extraProps?: any) => {
   const ContainerHOC = (props: T) => {
     return (
-      <Box as="section" my={[4, 4, 10, 15]}>
-        <Component {...props} {...extraProps} />
-      </Box>
+      <Container>
+        <Box as="section" my={[4, 4, 10, 15]}>
+          <Component {...props} {...extraProps} />
+        </Box>
+      </Container>
     )
   }
   return ContainerHOC

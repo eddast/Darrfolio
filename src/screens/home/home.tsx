@@ -1,6 +1,7 @@
 import { ImageTextSlice } from 'components'
 import { JellyScroll } from 'components/jellyScroll/jellyScroll'
 import { PageIntro } from 'components/pageIntro/pageIntro'
+import { ImageGridSlice } from 'components/slices/imageGrid/imageGrid'
 import { LayoutScreen, withLayout } from 'layouts'
 import { withWrapperBox } from 'layouts/wrappers'
 import { Home as Page } from 'types'
@@ -14,32 +15,34 @@ interface Props {
  * Homepage extendar layout screen sem þýðir bara að hann á að vera enwrapped í layoutinu, þ.e. hafa haus og fót
  */
 const HomePage: LayoutScreen<Props> = ({ page }) => (
-  <Box>
-    {/* sorry með jelly scrollið, var inspired lel */}
-    <JellyScroll maxSkew={1}>
+  <Box position="relative">
+    <Box width="full" position="relative" zIndex="2">
       <Container>
-        <PageIntro
-          title={page.data.hero_title}
-          secondaryTitle={page.data.hero_title_secondary}
-          text={page.data.hero_text}
-          image={page.data.hero_image}
-        />
+        <Box width="full">
+          <PageIntro
+            title={page.data.hero_title}
+            secondaryTitle={page.data.hero_title_secondary}
+            text={page.data.hero_text}
+            image={page.data.hero_image}
+          />
+        </Box>
       </Container>
-      <Container>
-        {/*
-         * Þetta er sjúklega prismic specific component
-         * Þetta mappar bara slices/byggingaeiningunum úr Prismic í componentana sem þeir sýna
-         * Þannig verður hægt að raða slices í Prismic eins og maður vill og hægt að extenda og gera fleiri
-         * og fleira neat
-         */}
-        <PrismicSliceZone
-          mapper={{
-            image_and_text_panel: withWrapperBox(ImageTextSlice),
-          }}
-          slices={page.data?.body || []}
-        />
-      </Container>
-    </JellyScroll>
+    </Box>
+    <Box position="relative" zIndex="1">
+      {/*
+       * Þetta er sjúklega prismic specific component
+       * Þetta mappar bara slices/byggingaeiningunum úr Prismic í componentana sem þeir sýna
+       * Þannig verður hægt að raða slices í Prismic eins og maður vill og hægt að extenda og gera fleiri
+       * og fleira neat
+       */}
+      <PrismicSliceZone
+        mapper={{
+          image_grid: ImageGridSlice,
+          image_and_text_panel: withWrapperBox(ImageTextSlice),
+        }}
+        slices={page.data?.body || []}
+      />
+    </Box>
   </Box>
 )
 
