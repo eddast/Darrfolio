@@ -34,7 +34,19 @@ Pælingin er að þú lærir stuff með research vinnu og svo auðvitað spyrðu
    - þegar maður hoverar hann eiga litirnir að snúast við
    - búðu svo til nýjan route path í pages sem heitir test þannig þegar ég fer á /test þá ætti ég að sjá þennan nýja button!
 
-2. Búðu til component sem lítur svipað og svona út og notaðu í það <Box> componentinn úr styled system og responsive features í því. Þú getur miðað við einhverja componenta sem ég setti hér fyrir til að sjá hvernig það er gert.
+2. Búðu til component sem lítur svipað og svona út og notaðu í það <Box> componentinn úr styled system og responsive features í því.
+   - Þú getur miðað við einhverja componenta sem ég setti hér fyrir til að sjá hvernig það er gert.
+   - Litirnir á boxunum vinstri til hægri eru primary200, primary300 og primary500 og þeir ættu allir að vera með padding value 20
+   - Það á að vera margin á milli boxana í desktop en ekki í mobile!
+   
+   Desktop:
+   
+   ![image](https://user-images.githubusercontent.com/16048954/159044493-27899dd5-dbda-4396-9c1e-8b6fc375db08.png)
+   
+   Mobile:
+   
+   ![image](https://user-images.githubusercontent.com/16048954/159044684-3920b087-b29f-403a-b726-4085a6252573.png)
+
 
 3. Búðu til wildcard route fyrir content_pages:
    - Í prismic er eitt document type sem heitir content_page og hvert af þeirri týpu er með uid, unique identifier
@@ -43,12 +55,17 @@ Pælingin er að þú lærir stuff með research vinnu og svo auðvitað spyrðu
    - Þú þarft að nota fallið getStaticPaths til að segja NextJS hvaða paths eru í boði í verkefninu svo það geti cacheað allt á production og verið sætt og snappy
    - Þú þarft að nota fallið getStaticProps til að sækja props fyrir hverja síðu fyrir sig
    - Lestu NextJS documentation um þetta, en ég skal gefa þér Prismic kóðabúa til að hjálpa því Prismiclærdómur er ekki aðal atriði
+   - Sjá kóðabútana neðst
+   
+   
+# GERÐU BRANCH FYRIR HVERN LIÐ SEM FEATURE BRANCH!
+
 
 ## Prismic kóðabútar
 
 #### Að ná í data fyrir síðu eftir UID þess:
 
-`
+```js
 import Prismic from 'prismic-javascript'
 import { Client } from 'helpers'
 
@@ -56,17 +73,17 @@ import { Client } from 'helpers'
 
 const client = Client()
 const contentPage = await client.getByUID(
-'content_page',
-(ctx.params?.uid as string) || '',
-{},
+   'content_page',
+   (ctx.params?.uid as string) || '',
+   {},
 )
-`
+```
 
 #### Að ná í alla possible paths á tiltekinni prismic document type (content_page)
 
 Svo returnaru possible paths í þessu formi í fallinu getStaticPaths
 
-`
+```js
 import Prismic from 'prismic-javascript'
 
 /_ .... _/
@@ -74,13 +91,11 @@ import Prismic from 'prismic-javascript'
 const API = await Prismic.getApi(CMS_BASE_URL, {})
 const allPages = await API.query(Prismic.Predicates.at('document.type', 'content_page'))
 return {
-paths: pages.results.map((page) => ({
-params: {
-uid: page.uid || '',
-},
-})),
-fallback: true,
+   paths: pages.results.map((page) => ({
+      params: {
+         uid: page.uid || '',
+      },
+   })),
+   fallback: true,
 }
-}
-
-`
+```
