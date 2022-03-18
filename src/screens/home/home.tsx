@@ -39,6 +39,7 @@ const HomePage: LayoutScreen<Props> = ({ page }) => (
         mapper={{
           image_grid: ImageGridSlice,
           image_and_text_panel: withWrapperBox(ImageTextSlice),
+          fun_facts: FunFactsSlice,
         }}
         slices={page.data?.body || []}
       />
