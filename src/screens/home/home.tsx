@@ -19,6 +19,7 @@ const HomePage: LayoutScreen<Props> = ({ page }) => (
       <Container>
         <Box width="full">
           <PageIntro
+            uid="home"
             title={page.data.hero_title}
             secondaryTitle={page.data.hero_title_secondary}
             text={page.data.hero_text}
