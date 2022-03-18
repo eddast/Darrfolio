@@ -248,14 +248,6 @@ export const Footer: FC<{ footer: FooterType | null }> = ({ footer }) => {
                                     href={linkResolver(link)}
                                     variant="darkBold"
                                     size="small"
-                                    iconColor={
-                                      icon === 'spotify' ? undefined : 'primary'
-                                    }
-                                    iconFill={
-                                      icon === 'spotify' ? 'spotify' : undefined
-                                    }
-                                    iconSize={20}
-                                    iconLeft={icon}
                                   >
                                     {icon[0].toUpperCase() +
                                       icon.slice(1, icon.length)}

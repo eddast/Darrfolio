@@ -113,21 +113,14 @@ export const Header: FC<Props> = ({ menu }) => {
           </Box>
           <Box zIndex="1" width="9/12">
             <Box display="flex" as="nav" width="full" justifyContent="flex-end">
-              {menu?.data?.social_medias?.map(({ icon, link }, index) => (
-                <Hidden
-                  key={icon + index}
-                  below={icon !== 'spotify' ? 'sm' : undefined}
-                >
+              {menu?.data?.social_medias?.map(({ link }, index) => (
+                <Hidden key={index} below="sm">
                   <Box pr={[0, 0, 1]} pl={1}>
                     <Link href={linkResolver(link)}>
                       <Anchor
                         href={linkResolver(link)}
                         variant="darkBold"
                         size="small"
-                        iconColor={icon === 'spotify' ? undefined : 'primary'}
-                        iconFill={icon === 'spotify' ? 'spotify' : undefined}
-                        iconSize={[18, 20, 24]}
-                        iconLeft={icon}
                       >
                         <motion.span
                           variants={logoLetterVariants}
@@ -137,7 +130,7 @@ export const Header: FC<Props> = ({ menu }) => {
                             opacity: 1,
                           }}
                         >
-                          {icon[0].toUpperCase() + icon.slice(1, icon.length)}
+                          test
                         </motion.span>
                       </Anchor>
                     </Link>
