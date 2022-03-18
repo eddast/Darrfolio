@@ -1,5 +1,4 @@
 import { ImageTextSlice } from 'components'
-import { JellyScroll } from 'components/jellyScroll/jellyScroll'
 import { PageIntro } from 'components/pageIntro/pageIntro'
 import { ImageGridSlice } from 'components/slices/imageGrid/imageGrid'
 import { LayoutScreen, withLayout } from 'layouts'
