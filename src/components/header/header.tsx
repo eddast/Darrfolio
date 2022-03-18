@@ -55,6 +55,7 @@ export const Header: FC<Props> = ({ menu }) => {
         as="header"
         position="sticky"
         width="viewportWidth"
+        maxWidth="viewportWidth"
         bg="white"
         top={0}
         zIndex="header"
