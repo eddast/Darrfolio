@@ -110,7 +110,7 @@ export const Header: FC<Props> = ({ menu }) => {
               </a>
             </Link>
           </Box>
-          <Box zIndex="1" width="9/12">
+          <Box zIndex="1" width="9/12" display={['none', 'inherit']}>
             <Box display="flex" as="nav" width="full" justifyContent="flex-end">
               {menu?.data?.links?.map(
                 ({ link, label }, index) =>

@@ -76,12 +76,7 @@ export const Layout: FC<LayoutProps> = ({ header, footer, children }) => {
   const ref = useRef<HTMLDivElement>(null)
   if (router.isFallback) return <FallbackScreen />
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      minHeight="viewportHeight"
-      overflowX="hidden"
-    >
+    <Box display="flex" flexDirection="column" minHeight="viewportHeight">
       {header && <Header menu={header} />}
       <Box flexGrow={2} width="viewportWidth" overflowX="hidden">
         <main id="main-content">{children}</main>
