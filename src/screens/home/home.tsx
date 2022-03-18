@@ -1,5 +1,6 @@
 import { ImageTextSlice } from 'components'
 import { JellyScroll } from 'components/jellyScroll/jellyScroll'
+import { PageIntro } from 'components/pageIntro/pageIntro'
 import { LayoutScreen, withLayout } from 'layouts'
 import { withWrapperBox } from 'layouts/wrappers'
 import { Home as Page } from 'types'
@@ -13,88 +14,33 @@ interface Props {
  * Homepage extendar layout screen sem þýðir bara að hann á að vera enwrapped í layoutinu, þ.e. hafa haus og fót
  */
 const HomePage: LayoutScreen<Props> = ({ page }) => (
-  <>
-    <div>
-      {/* sorry með jelly scrollið, var inspired lel */}
-      <JellyScroll maxSkew={1}>
-        <Container>
-          {/*
-           * Þetta er sjúklega prismic specific component
-           * Þetta mappar bara slices/byggingaeiningunum úr Prismic í componentana sem þeir sýna
-           * Þannig verður hægt að raða slices í Prismic eins og maður vill og hægt að extenda og gera fleiri
-           * og fleira neat
-           */}
-          <PrismicSliceZone
-            mapper={{
-              image_text_section: withWrapperBox(ImageTextSlice),
-            }}
-            slices={page.data?.body || []}
-          />
-        </Container>
-        <Container>
-          <Text>
-            <Box py={20} bg="primary200">
-              padding á y-ás (uppi og niðri) (20 er c.a. 160px)
-            </Box>
-          </Text>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-          <Box px={20} bg="primary500" my={10}>
-            <Text color="white">
-              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
-              10 þess vegna er speis á milli
-            </Text>
-          </Box>
-        </Container>
-      </JellyScroll>
-    </div>
-  </>
+  <Box>
+    {/* sorry með jelly scrollið, var inspired lel */}
+    <JellyScroll maxSkew={1}>
+      <Container>
+        <PageIntro
+          title={page.data.hero_title}
+          secondaryTitle={page.data.hero_title_secondary}
+          text={page.data.hero_text}
+          image={page.data.hero_image}
+        />
+      </Container>
+      <Container>
+        {/*
+         * Þetta er sjúklega prismic specific component
+         * Þetta mappar bara slices/byggingaeiningunum úr Prismic í componentana sem þeir sýna
+         * Þannig verður hægt að raða slices í Prismic eins og maður vill og hægt að extenda og gera fleiri
+         * og fleira neat
+         */}
+        <PrismicSliceZone
+          mapper={{
+            image_and_text_panel: withWrapperBox(ImageTextSlice),
+          }}
+          slices={page.data?.body || []}
+        />
+      </Container>
+    </JellyScroll>
+  </Box>
 )
 
 /*

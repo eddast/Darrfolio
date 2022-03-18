@@ -45,38 +45,30 @@ export const JellyScroll: FC<{ children: ReactNode[]; maxSkew?: number }> = ({
   }, [velocity])
 
   return (
-    <Box display="flex" justifyContent="center">
-      <Box width="10/12">
-        <div
+    <Box width="full">
+      {children.map((child, index) => (
+        <motion.div
+          animate={{
+            skewY:
+              velocity * 0.5 >= maxSkew
+                ? maxSkew
+                : velocity * 0.5 <= -maxSkew
+                ? -maxSkew
+                : velocity * 0.5,
+          }}
+          transition={{
+            times: [-1, 0, 1],
+            bounceDamping: 0.3,
+            duration: velocity === 0 ? 0.8 : 0.3,
+          }}
+          key={index}
           style={{
-            padding: 50,
+            width: '100%',
           }}
         >
-          {children.map((child, index) => (
-            <motion.div
-              animate={{
-                skewY:
-                  velocity * 0.5 >= maxSkew
-                    ? maxSkew
-                    : velocity * 0.5 <= -maxSkew
-                    ? -maxSkew
-                    : velocity * 0.5,
-              }}
-              transition={{
-                times: [-1, 0, 1],
-                bounceDamping: 0.3,
-                duration: velocity === 0 ? 0.8 : 0.3,
-              }}
-              key={index}
-              style={{
-                width: '100%',
-              }}
-            >
-              {child}
-            </motion.div>
-          ))}
-        </div>
-      </Box>
+          {child}
+        </motion.div>
+      ))}
     </Box>
   )
 }

@@ -418,6 +418,7 @@ export const htmlSerializerMinimal: HTMLSerializer<ReactNode> = function (
         Text,
         propsWithUniqueKey(
           {
+            variant: 'textIntro',
             lineHeight: 'large',
             pb: 0,
           },
