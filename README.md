@@ -42,12 +42,17 @@ Pælingin er að þú lærir stuff með research vinnu og svo auðvitað spyrðu
    - Þú þarft að nota fallið getStaticPaths til að segja NextJS hvaða paths eru í boði í verkefninu svo það geti cacheað allt á production og verið sætt og snappy
    - Þú þarft að nota fallið getStaticProps til að sækja props fyrir hverja síðu fyrir sig
    - Lestu NextJS documentation um þetta, en ég skal gefa þér Prismic kóðabúa til að hjálpa því Prismiclærdómur er ekki aðal atriði
+   - Sjá kóðabútana neðst
+   
+   
+# GERÐU BRANCH FYRIR HVERN LIÐ SEM FEATURE BRANCH!
+
 
 ## Prismic kóðabútar
 
 #### Að ná í data fyrir síðu eftir UID þess:
 
-`
+```js
 import Prismic from 'prismic-javascript'
 import { Client } from 'helpers'
 
@@ -55,17 +60,17 @@ import { Client } from 'helpers'
 
 const client = Client()
 const contentPage = await client.getByUID(
-'content_page',
-(ctx.params?.uid as string) || '',
-{},
+   'content_page',
+   (ctx.params?.uid as string) || '',
+   {},
 )
-`
+```
 
 #### Að ná í alla possible paths á tiltekinni prismic document type (content_page)
 
 Svo returnaru possible paths í þessu formi í fallinu getStaticPaths
 
-`
+```js
 import Prismic from 'prismic-javascript'
 
 /_ .... _/
@@ -73,13 +78,11 @@ import Prismic from 'prismic-javascript'
 const API = await Prismic.getApi(CMS_BASE_URL, {})
 const allPages = await API.query(Prismic.Predicates.at('document.type', 'content_page'))
 return {
-paths: pages.results.map((page) => ({
-params: {
-uid: page.uid || '',
-},
-})),
-fallback: true,
+   paths: pages.results.map((page) => ({
+      params: {
+         uid: page.uid || '',
+      },
+   })),
+   fallback: true,
 }
-}
-
-`
+```
