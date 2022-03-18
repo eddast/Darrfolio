@@ -43,6 +43,54 @@ const HomePage: LayoutScreen<Props> = ({ page }) => (
               10 þess vegna er speis á milli
             </Text>
           </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
+          <Box px={20} bg="primary500" my={10}>
+            <Text color="white">
+              padding á x-ás (til hliðanna) er 20 sem er c.a. 150px margin-y er
+              10 þess vegna er speis á milli
+            </Text>
+          </Box>
         </Container>
       </JellyScroll>
     </div>

@@ -32,6 +32,7 @@ Pælingin er að þú lærir stuff með research vinnu og svo auðvitað spyrðu
 
    - Skilgreindu í hönnunarkerfinu nýjan button variant sem er "ghost" variant, þ.e. með hvítan bakgrunn, primary color border og texta
    - þegar maður hoverar hann eiga litirnir að snúast við
+   - búðu svo til nýjan route path í pages sem heitir test þannig þegar ég fer á /test þá ætti ég að sjá þennan nýja button!
 
 2. Búðu til component sem lítur svipað og svona út og notaðu í það <Box> componentinn úr styled system og responsive features í því. Þú getur miðað við einhverja componenta sem ég setti hér fyrir til að sjá hvernig það er gert.
 

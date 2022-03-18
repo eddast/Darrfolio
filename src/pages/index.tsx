@@ -24,8 +24,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const layoutProps = await getLayoutProps(client, ctx)
   const page = await client.getSingle('front_page', {})
 
-  console.log(page)
-
   if (!page?.data)
     return {
       notFound: true,

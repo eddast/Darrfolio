@@ -77,11 +77,11 @@ export const Layout: FC<LayoutProps> = ({ header, footer, children }) => {
   if (router.isFallback) return <FallbackScreen />
   return (
     <Box display="flex" flexDirection="column" minHeight="viewportHeight">
-      {/* {header && <Header menu={header} />} */}
+      {header && <Header menu={header} />}
       <Box flexGrow={2} width="viewportWidth" overflowX="hidden">
         <main id="main-content">{children}</main>
       </Box>
-      {/* {footer && <Footer footer={footer} />} */}
+      {footer && <Footer footer={footer} />}
     </Box>
   )
 }

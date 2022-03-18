@@ -37,7 +37,6 @@ export const logoLetterVariants = {
  * setti inn smá sætan (og kannski alltof extra en þarrílagi) header hér
  */
 export const Header: FC<Props> = ({ menu }) => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const [animateLetters, setAnimateLetters] = useState<boolean>(false)
   const ref = useRef(null)
   const { y } = useWindowScroll()
@@ -81,12 +80,12 @@ export const Header: FC<Props> = ({ menu }) => {
                   alignItems="center"
                 >
                   <Box display="flex" alignItems="flex-end">
-                    {'darri'.split('').map((letter, index) => (
+                    {'darrfolio'.split('').map((letter, index) => (
                       <LogoText
                         key={`${letter}-${index}`}
                         animate={
                           animateLetters
-                            ? index < 1
+                            ? letter !== 'f' && letter !== 'o' && letter !== 'l'
                               ? 'flipped'
                               : animateLetters && 'gone'
                             : 'regular'
@@ -113,30 +112,22 @@ export const Header: FC<Props> = ({ menu }) => {
           </Box>
           <Box zIndex="1" width="9/12">
             <Box display="flex" as="nav" width="full" justifyContent="flex-end">
-              {menu?.data?.social_medias?.map(({ link }, index) => (
-                <Hidden key={index} below="sm">
-                  <Box pr={[0, 0, 1]} pl={1}>
-                    <Link href={linkResolver(link)}>
-                      <Anchor
-                        href={linkResolver(link)}
-                        variant="darkBold"
-                        size="small"
-                      >
-                        <motion.span
-                          variants={logoLetterVariants}
-                          animate={animateLetters ? 'gone' : 'regular'}
-                          whileHover={{
-                            width: 'auto',
-                            opacity: 1,
-                          }}
+              {menu?.data?.links?.map(
+                ({ link, label }, index) =>
+                  linkResolver(link) && (
+                    <Box px={[1, 1, 4]} pl={1}>
+                      <Link href={linkResolver(link)}>
+                        <Anchor
+                          href={linkResolver(link)}
+                          variant="darkBold"
+                          size="small"
                         >
-                          test
-                        </motion.span>
-                      </Anchor>
-                    </Link>
-                  </Box>
-                </Hidden>
-              ))}
+                          {label}
+                        </Anchor>
+                      </Link>
+                    </Box>
+                  ),
+              )}
             </Box>
           </Box>
         </Box>

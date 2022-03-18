@@ -4,6 +4,6 @@ import { Link } from 'prismic-reactjs'
 export interface Header extends Document {
   data: {
     title: string
-    social_medias: { link: Link }[]
+    links: { label: string; link: Link }[]
   }
 }
