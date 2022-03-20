@@ -41,6 +41,29 @@ const buttons = {
       outline: `${colors.primary400} solid 2px`,
     },
   },
+  ghost: {
+    backgroundColor: colors.white,
+    color: colors.primary,
+    fontWeight: 700,
+    borderRadius: '35px',
+    border: `2px solid ${colors.primary}`, 
+    svg: {
+      color: colors.white,
+    },
+    ':hover': {
+      backgroundColor: colors.primary,
+      color: colors.white
+    },
+    ':focus': {
+      outline: `${colors.primary400} solid 2px`,
+    },
+    ':focus:not(:focus-visible)': {
+      outline: 'none',
+    },
+    ':focus-visible': {
+      outline: `${colors.primary400} solid 2px`,
+    },
+  },
 }
 
 export const buttonSizes = {
