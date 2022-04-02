@@ -19,6 +19,7 @@ interface Props {
 const ContentPage: LayoutScreen<Props> = ({ page }) => (
   <Box pb={20}>
     {/* sorry með jelly scrollið, var inspired lel */}
+    {/* no biggie, varð bara bílveikur */}
     <JellyScroll maxSkew={1}>
       <Container>
         <Box>
